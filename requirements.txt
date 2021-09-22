@@ -16,7 +16,7 @@ cycler==0.10.0
     # via matplotlib
 dj-database-url==0.5.0
     # via -r requirements.in
-django==3.1.12
+django==3.1.13
     # via -r requirements.in
 gevent==20.6.2
     # via -r requirements.in
