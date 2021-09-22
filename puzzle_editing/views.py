@@ -2061,7 +2061,7 @@ def editors(request):
     for user in users:
         user.full_display_name = get_full_display_name(user)
         # FIXME You can do this quickly in Django 3.x
-        user.is_meta_editor = user.has_perm("alientoyshop.change_round")
+        user.is_meta_editor = user.has_perm("puzzle_editing.change_round")
 
     users = [user for user in users if user.is_meta_editor or user.editing_all > 0]
 
