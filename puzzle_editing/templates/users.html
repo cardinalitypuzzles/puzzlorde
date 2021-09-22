@@ -5,7 +5,7 @@ Users
 {% endblock %}
 {% block main %}
 	<h1>Users</h1>
-	<p>* "Active" means any status other than Deferred, Dead, or Done. See also <a href="{% url 'users_statuses' %}">Users &times; Statuses</a>, more detailed <a href="{% url 'editors' %}">Editors + Editing Puzzles</a></p>
+	<p>* "Active" means any status other than Dead or Done. See also <a href="{% url 'users_statuses' %}">Users &times; Statuses</a>, more detailed <a href="{% url 'editors' %}">Editors + Editing Puzzles</a></p>
 	<div class="table-wrap">
 	<table class="classic sortable">
 		<thead>
