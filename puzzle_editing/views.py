@@ -75,7 +75,10 @@ def get_sessions_with_joined_and_current(user):
 
 def get_full_display_name(user):
     try:
-        if user.profile.display_name:
+        if (
+            user.profile.display_name
+            and user.profile.display_name.lower() != user.username
+        ):
             return "{} ({})".format(user.profile.display_name, user.username)
         else:
             return user.username
