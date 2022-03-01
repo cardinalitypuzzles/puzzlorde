@@ -404,7 +404,7 @@ class TestsolveSession(models.Model):
     @property
     def is_done(self):
         done_participations = TestsolveParticipation.objects.filter(session=self, ended__isnull=False)
-        return done_participations > 0
+        return done_participations.length > 0
 
     def participants(self):
         return User.objects.filter(testsolve_participations__session=self).annotate(
