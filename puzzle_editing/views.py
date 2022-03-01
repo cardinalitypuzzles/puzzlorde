@@ -56,7 +56,7 @@ from puzzle_editing.models import TestsolveSession
 from puzzle_editing.models import UserProfile
 
 
-def get_sessions_with_joined_and_current(user):
+def get_sessions_with_joined_current_and_done(user):
     return TestsolveSession.objects.annotate(
         joined=Exists(
             TestsolveParticipation.objects.filter(
@@ -69,6 +69,12 @@ def get_sessions_with_joined_and_current(user):
                 session=OuterRef("pk"),
                 user=user,
                 ended=None,
+            )
+        ),
+        done=Exists(
+            TestsolveParticipation.objects.filter(
+                session=OuterRef("pk"),
+                ended__isnull=False,
             )
         ),
     )
@@ -110,7 +116,7 @@ def index(request):
         editors=user,
         status__in=status.STATUSES_BLOCKED_ON_EDITORS,
     )
-    current_sessions = get_sessions_with_joined_and_current(user).filter(
+    current_sessions = get_sessions_with_joined_current_and_done(user).filter(
         joined=True, current=True
     )
     inbox_puzzles = (
@@ -1239,10 +1245,10 @@ def testsolve_main(request):
 
             return redirect(urls.reverse("testsolve_one", args=[session.id]))
 
-    sessions = get_sessions_with_joined_and_current(request.user)
+    sessions = get_sessions_with_joined_current_and_done(request.user)
     current_sessions = sessions.filter(joined=True, current=True)
     past_sessions = sessions.filter(joined=True, current=False)
-    joinable_sessions = sessions.filter(joined=False, joinable=True)
+    joinable_sessions = sessions.filter(joined=False, joinable=True, done=False)
 
     testsolvable_puzzles = (
         Puzzle.objects.filter(status=status.TESTSOLVING)
