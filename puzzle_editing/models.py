@@ -401,11 +401,6 @@ class TestsolveSession(models.Model):
     )
     notes = models.TextField(blank=True)
 
-    @property
-    def is_done(self):
-        done_participations = TestsolveParticipation.objects.filter(session=self, ended__isnull=False)
-        return done_participations.length > 0
-
     def participants(self):
         return User.objects.filter(testsolve_participations__session=self).annotate(
             current=Exists(

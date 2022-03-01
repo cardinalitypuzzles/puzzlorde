@@ -71,6 +71,11 @@ def get_sessions_with_joined_and_current(user):
                 ended=None,
             )
         ),
+        is_done=Exists(TestsolveParticipation.objects.filter(
+                session=OuterRef("pk"),
+                ended__isnull=False,
+            )
+        ),
     )
 
 
