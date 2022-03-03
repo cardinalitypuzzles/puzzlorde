@@ -675,19 +675,19 @@ blockquote > p:last-child {
 	display: none;
 }
 
-.hide-dead:checked + label + input + label + input + label + input + label + input + label + div > table tr.dead {
+.hide-dead:checked ~ .puzzle-list-table > table tr.dead {
 	display: none;
 }
-.hide-deferred:checked + label + input + label + input + label + input + label + div > table tr.deferred {
+.hide-deferred:checked ~ .puzzle-list-table > table tr.deferred {
 	display: none;
 }
-.hide-visited:checked + label + input + label + input + label + div > table tr.puzzle-row:not(.unvisited) {
+.hide-visited:checked ~ .puzzle-list-table > table tr.puzzle-row:not(.unvisited) {
 	display: none;
 }
-.hide-past-solution:checked + label + input + label + div > table tr.past_needs_solution {
+.hide-past-solution:checked ~ .puzzle-list-table > table tr.past_needs_solution {
 	display: none;
 }
-.show-only-answer:checked + label + div > table tr.puzzle-row:not(.answered) {
+.show-only-answer:checked ~ .puzzle-list-table > table tr.puzzle-row:not(.answered) {
 	display: none;
 }
 .unvisited .puzzle-link {

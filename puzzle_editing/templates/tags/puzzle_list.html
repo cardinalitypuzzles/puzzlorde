@@ -2,26 +2,19 @@
 {% load markdown %}
 {% load humanize %}
 {% if puzzles %}
-<div>
-	<input id="hide-dead-{{ random_id }}" type="checkbox" class="hide-dead" checked> <label
-	for="hide-dead-{{ random_id }}">Hide dead puzzles</label>
-</div>
-<div>
-	<input id="hide-visited-{{ random_id }}" type="checkbox" class="hide-visited"> <label
-	for="hide-visited-{{ random_id }}">Only show spoiled+unvisited</label>
-</div>
-<div>
-	<input id="hide-past-solution-{{ random_id }}" type="checkbox" class="hide-past-solution"> <label
-	for="hide-past-solution-{{ random_id }}">Hide puzzles &ge; Needs Solution</label>
-</div>
-<div>
-	<input id="show-only-answer-{{ random_id }}" type="checkbox" class="show-only-answer"> <label
-	for="show-only-answer-{{ random_id }}">Show only puzzles with answers</label>
-</div>
-
+<input id="hide-dead-{{ random_id }}" type="checkbox" class="hide-dead" checked> <label
+for="hide-dead-{{ random_id }}">Hide dead puzzles</label>
+<br>
+<input id="hide-visited-{{ random_id }}" type="checkbox" class="hide-visited"> <label
+for="hide-visited-{{ random_id }}">Only show spoiled+unvisited</label>
+<br>
+<input id="hide-past-solution-{{ random_id }}" type="checkbox" class="hide-past-solution"> <label
+for="hide-past-solution-{{ random_id }}">Hide puzzles &ge; Needs Solution</label>
+<br>
+<input id="show-only-answer-{{ random_id }}" type="checkbox" class="show-only-answer"> <label
+for="show-only-answer-{{ random_id }}">Show only puzzles with answers</label>
 <hr>
-
-<div class="table-wrap">
+<div class="table-wrap puzzle-list-table">
 	<table class="classic sortable">
 		<tr>
 			<th>🤔</th>
