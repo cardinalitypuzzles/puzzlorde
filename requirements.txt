@@ -10,7 +10,7 @@ backports-zoneinfo==0.2.1
     # via django
 bleach==3.3.0
     # via -r requirements.in
-certifi==2020.6.20
+certifi==2022.12.7
     # via matplotlib
 click==8.0.3
     # via pip-tools
